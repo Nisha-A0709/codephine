@@ -1,0 +1,259 @@
+First, ensure you have Node.js and MongoDB installed on your system. Then, create a new directory for your project and initialize a new Node.js project by running:
+
+bash
+Copy code
+mkdir registration-form
+cd registration-form
+npm init -y
+Install necessary dependencies:
+
+bash
+Copy code
+npm install express mongoose body-parser bootstrap
+Now, let's create the files for our project:
+
+index.js: This will be our main server file.
+views/index.html: This will contain the HTML for our registration form.
+public/style.css: This will contain the CSS for styling our form.
+Here's the code for each file:
+
+index.js:
+
+javascript
+Copy code
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+const app = express();
+
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost/registration-form', { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB Connected'))
+    .catch(err => console.log(err));
+
+// Define User schema
+const UserSchema = new mongoose.Schema({
+    username: String,
+    email: String,
+    password: String
+});
+
+const User = mongoose.model('User', UserSchema);
+
+// Body parser middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Serve static files from the public directory
+app.use(express.static('public'));
+
+// Route to serve the registration form
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/views/index.html');
+});
+
+// Route to handle form submission
+app.post('/register', (req, res) => {
+    const { username, email, password } = req.body;
+    // Create a new user
+    const newUser = new User({
+        username,
+        email,
+        password
+    });
+    // Save the user to the database
+    newUser.save()
+        .then(() => res.send('Registration successful!'))
+        .catch(err => console.log(err));
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+views/index.html:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form action="/register" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</body>
+</html>
+public/style.css:
+
+css
+Copy code
+/* Add custom styles here */
+Make sure your MongoDB server is running. Then, start the Node.js server by running:
+
+bash
+Copy code
+node index.js
+Now, you should be able to access the registration form at http://localhost:3000 and submit registration data, which will be stored in your MongoDB database.
+
+
+
+
+By sending a message, you agree to our Terms. Read our Privacy Policy. Don't share sensitive info. Chats may be reviewed and used to train our models. Learn about your choices.
+
+
+
+
+
+
+
+
+
+
+
+
+codes
+
+
+
+
+
+mkdir registration-form
+cd registration-form
+npm init -y
+
+
+
+
+
+
+npm install express mongoose body-parser bootstrap
+
+
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+const app = express();
+
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost/registration-form', { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB Connected'))
+    .catch(err => console.log(err));
+
+// Define User schema
+const UserSchema = new mongoose.Schema({
+    username: String,
+    email: String,
+    password: String
+});
+
+const User = mongoose.model('User', UserSchema);
+
+// Body parser middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Serve static files from the public directory
+app.use(express.static('public'));
+
+// Route to serve the registration form
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/views/index.html');
+});
+
+// Route to handle form submission
+app.post('/register', (req, res) => {
+    const { username, email, password } = req.body;
+    // Create a new user
+    const newUser = new User({
+        username,
+        email,
+        password
+    });
+    // Save the user to the database
+    newUser.save()
+        .then(() => res.send('Registration successful!'))
+        .catch(err => console.log(err));
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form action="/register" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add custom styles here */
+node index.js
+
+

@@ -1,0 +1,140 @@
+Certainly! Below are basic templates for each of the four pages - Home, Product, Search, and 404 - using HTML, CSS, and JavaScript. I'll keep it simple and functional for demonstration purposes:
+
+Home Page:
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - E-commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our E-commerce Store</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="search.html">Search</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Featured Products</h2>
+        <!-- Display featured products here -->
+    </section>
+    <footer>
+        <p>&copy; 2024 E-commerce Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+Product Page:
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - E-commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Product Details</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="search.html">Search</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div class="product">
+            <img src="product_image.jpg" alt="Product Image">
+            <h2>Product Name</h2>
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Price: $XX.XX</p>
+            <button>Add to Cart</button>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 E-commerce Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+Search Page:
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - E-commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Search Products</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="search.html">Search</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <form>
+            <input type="text" placeholder="Search for products...">
+            <button type="submit">Search</button>
+        </form>
+        <!-- Display search results here -->
+    </section>
+    <footer>
+        <p>&copy; 2024 E-commerce Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+404 Page:
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 - E-commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>404 - Page Not Found</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="search.html">Search</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <p>Sorry, the page you are looking for could not be found.</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 E-commerce Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+Remember to link these pages together using appropriate anchor tags (`
+
+<a> tags) and ensure your CSS styles (styles.css`) provide a responsive layout for different devices. Additionally, you can enhance functionality with JavaScript as needed, such as adding interactive features like product filtering or dynamic search results.
+
+
+
+
